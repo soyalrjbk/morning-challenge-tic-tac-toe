@@ -29,7 +29,8 @@ class Game{
         if(this.checkWin()){
             this.message=this.currentPlayer.name + " wins!";
             this.gameOver=true;
-        } else if(!this.cells.includes("")){
+//The includes() method is used to check if an array or a string contains a specific value. It performs a case-sensitive search and returns a boolean value: true if the value is found, and false if it is not.
+        } else if(!this.cells.includes("")){ 
             this.message="It's a tie!";
             this.gameOver=true;
         } else{
@@ -44,8 +45,9 @@ class Game{
     }
 //Checks if it's a winner
     checkWin(){
+//Array inside of Array
         const wins=[
-            [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]  //Array inside of Array
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]  
         ];
         for(let i=0; i<wins.length; i++){
             const a=wins[i][0]; //0 . . . 
@@ -58,11 +60,11 @@ class Game{
         return false;
     }
 }
-// Create the two players and start a new game
+//Create the two players and start a new game
 const player1=new Player("Player 1", "X");
 const player2=new Player("Player 2", "O");
 const game=new Game(player1, player2);
-// Get the cells, the message, and the restart button from the page
+//Get the cells, the message, and the restart button from the page
 const cells=document.querySelectorAll(".cell");
 const message=document.querySelector("#message");
 const resetButton=document.querySelector("#reset");
